@@ -1,9 +1,57 @@
+import { useState } from 'react';
+import { Button, Grid, TextField } from "@material-ui/core";
+import StepWrapper from "../../components/StepWraper";
 import MainLayout from "../../layouts/MainLayout";
+import FileUpload from '../../components/FileUpload';
 
 const Create = () => {
+
+    const [activeStep, setActiveStep] = useState(0);
+    const next = () => {
+        if (activeStep < 2) {
+            setActiveStep(prev => prev + 1);
+        }
+
+    }
+    const back = () => {
+        setActiveStep(prev => prev - 1);
+    }
     return (
         <MainLayout>
-            <h1>Загрузка трека</h1>
+            <StepWrapper activeStep={activeStep}>
+                {activeStep === 0 &&
+                    <Grid container direction={"column"} style={{ padding: 20 }}>
+                        <TextField
+                            style={{ marginTop: 10 }}
+                            label={"Название трека"}
+                        />
+                        <TextField
+                            style={{ marginTop: 10 }}
+                            label={"Имя исполнителя"}
+                        />
+                        <TextField
+                            style={{ marginTop: 10 }}
+                            label={"Слова к треку"}
+                            multiline
+                            rows={3}
+                        />
+                    </Grid>
+                }
+                {activeStep === 1 &&
+                    <FileUpload file={''} setFile={() => { }} >
+                        <Button>Загрузить изображение</Button>
+                    </FileUpload>
+                }
+                {activeStep === 2 &&
+                    <FileUpload file={''} setFile={() => { }}>
+                        <Button>Загрузить аудио</Button>
+                    </FileUpload>
+                }
+            </StepWrapper>
+            <Grid container justifyContent='space-between'>
+                <Button disabled={activeStep < 1} onClick={back}>Назад</Button>
+                <Button onClick={next}>Далее</Button>
+            </Grid>
         </MainLayout>
     )
 }
