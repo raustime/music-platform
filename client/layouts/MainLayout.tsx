@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import { Container } from "@material-ui/core";
+import Player from "../components/Player";
 
 const MainLayout: React.FC = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const MainLayout: React.FC = ({ children }) => {
             <Container style={{ margin: '90px auto' }}>
                 {children}
             </Container>
+            <Player />
         </>
     )
 }
