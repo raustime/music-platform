@@ -3,13 +3,15 @@ import { Box, Button, Card, Grid } from "@material-ui/core";
 import { useRouter } from "next/router"
 import { ITrack } from "../../types/track";
 import TrackList from "../../components/TrackList";
+import { useActions } from "../../hooks/useActions";
+
 
 const Index = () => {
     const router = useRouter();
     const tracks: ITrack[] = [
-        { _id: "23123123123", name: "track 1", text: "text song 1", artist: "artist 1", listens: 0, picture: "pic1.jpg", audio: "song1.mp3", comments: [] },
-        { _id: "23123123124", name: "track 2", text: "text song 2", artist: "artist 2", listens: 0, picture: "pic2.jpg", audio: "song2.mp3", comments: [] },
-        { _id: "23123123125", name: "track 3", text: "text song 3", artist: "artist 3", listens: 0, picture: "pic3.jpg", audio: "song3.mp3", comments: [] },
+        { _id: "23123123123", name: "track 1", text: "text song 1", artist: "artist 1", listens: 0, picture: "pic1.jpg", audio: "audio/a67a70c6-b581-4d5a-834b-eb8465590645.mp3", comments: [] },
+        { _id: "23123123124", name: "track 2", text: "text song 2", artist: "artist 2", listens: 0, picture: "pic2.jpg", audio: "audio/a67a70c6-b581-4d5a-834b-eb8465590645.mp3", comments: [] },
+        { _id: "23123123125", name: "track 3", text: "text song 3", artist: "artist 3", listens: 0, picture: "pic3.jpg", audio: "audio/a67a70c6-b581-4d5a-834b-eb8465590645.mp3", comments: [] },
     ];
     return (
         <MainLayout>
