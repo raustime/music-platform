@@ -11,7 +11,7 @@ import { useActions } from '../hooks/useActions';
 let audio;
 
 const Player = () => {
-    const track: ITrack = { _id: "23123123123", name: "track 1", text: "text song 1", artist: "artist 1", listens: 0, picture: "pic1.jpg", audio: "audio/a67a70c6-b581-4d5a-834b-eb8465590645.mp3", comments: [] };
+
     const { pause, volume, active, duration, currentTime } = useTypedSelector(state => state.player);
     const { pauseTrack, playTrack, setVolume, setCurrentTime, setDuration } = useActions();
     const play = () => {
